@@ -21,6 +21,10 @@ class CurrencyConvertionController extends Controller
 
         $data = $nbpService->convertAmountTo($currency, $amount);
 
+        if (!$data) {
+            abort(404, 'No data');
+        }
+
         return response()->json($data);
     }
 
@@ -35,6 +39,10 @@ class CurrencyConvertionController extends Controller
         $amount = $request->get('amount');
 
         $data = $nbpService->convertAmountFrom($currency, $amount);
+
+        if (!$data) {
+            abort(404, 'No data');
+        }
 
         return response()->json($data);
     }

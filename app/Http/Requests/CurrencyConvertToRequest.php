@@ -25,7 +25,7 @@ class CurrencyConvertToRequest extends FormRequest
     {
         return [
             'currency' => 'required|string',
-            'amount' => 'required|numeric',
+            'amount' => 'required|numeric|min:0',
         ];
     }
 }

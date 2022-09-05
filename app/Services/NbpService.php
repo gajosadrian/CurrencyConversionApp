@@ -31,7 +31,7 @@ class NbpService
     public function convertAmountTo(string $currency, float $amount): ?array
     {
         $rates = $this->getExchangeRates();
-        $rate = $rates->firstWhere('code', Str::upper($currency));
+        $rate = $rates?->firstWhere('code', Str::upper($currency));
 
         if (!$rate) {
             return null;
@@ -55,7 +55,7 @@ class NbpService
     public function convertAmountFrom(string $currency, float $amount): ?array
     {
         $rates = $this->getExchangeRates();
-        $rate = $rates->firstWhere('code', Str::upper($currency));
+        $rate = $rates?->firstWhere('code', Str::upper($currency));
 
         if (!$rate) {
             return null;
